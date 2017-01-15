@@ -1,5 +1,6 @@
 <?php
 
+use App\Concert;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -7,6 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ViewConcertListingTest extends TestCase
 {
+    use DatabaseMigrations;
     /** @test */
     function user_can_view_a_concert_listing() 
     {
@@ -23,7 +25,7 @@ class ViewConcertListingTest extends TestCase
             'additional_information' => 'For tickets, call (555) 555-5555.',
         ]);
 
-        $this->visit('/concerts'.$concert->id);
+        $this->visit('/concerts/'.$concert->id);
 
         $this->see('The Red Chord');
         $this->see('with Animosity and Lethargy');
