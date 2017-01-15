@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class ViewConcertListingTest extends TestCase
 {
     use DatabaseMigrations;
+
     /** @test */
     function user_can_view_a_concert_listing() 
     {
@@ -36,5 +37,17 @@ class ViewConcertListingTest extends TestCase
         $this->see('123 Example Lane');
         $this->see('Laraville, ON 17916');
         $this->see('For tickets, call (555) 555-5555.');
+    }
+
+    /** @test */
+    function user_cannot_view_unpublished_concert_listings() 
+    {
+        $concert = factory(Concert::class)->create([
+            'published_at' => null,
+        ]);
+
+        $this->get('/concerts/'.$concert->id);
+
+        $this->assertResponseStatus(404);
     }
 }
