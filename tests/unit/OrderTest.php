@@ -21,7 +21,7 @@ class OrderTest extends TestCase
         $this->assertEquals([
             'email' => 'jane@example.com',
             'ticket_quantity' => 5,
-            'amount' => 6000,
+            'amount' => 6000
         ], $result);
     }
 
