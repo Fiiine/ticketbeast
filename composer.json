@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/browser-kit-testing": "^1.0",
         "laravel/framework": "5.4.*",
         "stripe/stripe-php": "^4.4"
     },
@@ -28,8 +27,7 @@
     "autoload-dev": {
         "classmap": [
             "tests",
-            "tests/TestCase.php",
-            "tests/BrowserKitTestCase.php"
+            "tests/TestCase.php"
         ]
     },
     "scripts": {
