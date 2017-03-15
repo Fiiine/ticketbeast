@@ -4,6 +4,7 @@ namespace App;
 
 use App\Concert;
 use Illuminate\Database\Eloquent\Model;
+use App\Facades\OrderConfirmationNumber;
 
 class Order extends Model
 {
@@ -12,6 +13,7 @@ class Order extends Model
     public static function forTickets($tickets, $email, $amount)
     {
         $order = self::create([
+            'confirmation_number' => OrderConfirmationNumber::generate(),
             'email' => $email,
             'amount' => $amount,
         ]);
@@ -21,6 +23,11 @@ class Order extends Model
         }
 
         return $order;
+    }
+
+    public static function findByConfirmationNumber($confirmationNumber)
+    {
+        return self::where('confirmation_number', $confirmationNumber)->firstOrFail();
     }
 
     public function concert()
@@ -41,6 +48,7 @@ class Order extends Model
     public function toArray()
     {
         return [
+            'confirmation_number' => $this->confirmation_number,
             'email' => $this->email,
             'ticket_quantity' => $this->ticketQuantity(),
             'amount' => $this->amount,
