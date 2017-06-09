@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\Unit;
+
+use Tests\TestCase;
 use App\Ticket;
 use App\HashidsTicketCodeGenerator;
 use Illuminate\Foundation\Testing\WithoutMiddleware;

@@ -1,8 +1,11 @@
 <?php
 
+namespace Tests\Feature;
+
 use App\Order;
 use App\Ticket;
 use App\Concert;
+use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

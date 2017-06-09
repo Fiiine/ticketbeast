@@ -6,9 +6,10 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "hashids/hashids": "^2.0",
+        "laravel/dusk": "^1.1",
         "laravel/framework": "5.4.*",
-        "stripe/stripe-php": "^4.4",
-        "hashids/hashids": "^2.0"
+        "stripe/stripe-php": "^4.4"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -26,10 +27,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests",
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-root-package-install": [

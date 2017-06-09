@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\Unit;
+
+use Tests\TestCase;
 use App\Order;
 use App\Ticket;
 use App\Concert;
@@ -55,6 +58,17 @@ class ConcertTest extends TestCase
         $this->assertTrue($publishedConcerts->contains($publishedConcertA));
         $this->assertTrue($publishedConcerts->contains($publishedConcertB));
         $this->assertFalse($publishedConcerts->contains($publishedConcertC));
+    }
+
+    /** @test */
+    function concerts_can_be_published() 
+    {
+        $concert = factory(Concert::class)->create(['published_at' => null]);
+        $this->assertFalse($concert->isPublished());
+
+        $concert->publish();
+
+        $this->assertTrue($concert->isPublished());
     }
 
     /** @test */

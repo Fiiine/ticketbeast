@@ -1,8 +1,12 @@
 <?php
 
+namespace Tests\Unit;
+
+use Tests\TestCase;
 use App\Ticket;
 use App\Concert;
 use App\Reservation;
+use Mockery;
 use App\Billing\FakePaymentGateway;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
