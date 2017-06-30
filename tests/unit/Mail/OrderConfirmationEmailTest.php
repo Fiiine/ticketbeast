@@ -1,9 +1,7 @@
 <?php
 
-namespace Tests\Unit\Mail;
-
-use Tests\TestCase;
 use App\Order;
+use Tests\TestCase;
 use App\Mail\OrderConfirmationEmail;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;

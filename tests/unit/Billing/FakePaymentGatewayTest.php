@@ -1,10 +1,9 @@
 <?php
 
-namespace Tests\Unit\Billing;
-
 use Tests\TestCase;
 use App\Billing\FakePaymentGateway;
 use App\Billing\PaymentFailedException;
+use Tests\Unit\Billing\PaymentGatewayContractTests;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
